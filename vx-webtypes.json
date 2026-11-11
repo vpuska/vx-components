@@ -1,0 +1,565 @@
+{
+    "$schema": "http://json.schemastore.org/web-types",
+    "name": "vx-components",
+    "version": "0.0.1",
+    "framework": "lit",
+    "description-markup": "markdown",
+    "contributions": {
+        "html": {
+            "elements": [
+                {
+                    "name": "vx-panel",
+                    "description": "A nestable container for a logical grouping of content. When nested, the panel's colors\r\ncan be adjusted using the level attribute. 0 is the bottom-most level.  Higher levels\r\nlighten or darken the panel depending on whether the theme is light or dark.\r\n### Slots\r\n- `header` - The header of the panel.\r\n- `footer` - The footer of the panel.\r\n### CSS Properties\r\n- `--vx-panel-color` - The background color of the panel\r\n- `--vx-text-color` - The text color of the panel`",
+                    "source": {
+                        "module": "./src/components/vx-panel/vx-panel.component.ts",
+                        "symbol": "VxPanel"
+                    },
+                    "attributes": [
+                        {
+                            "name": "level",
+                            "required": false,
+                            "priority": "normal",
+                            "value": {
+                                "type": [
+                                    "0",
+                                    "1",
+                                    "2",
+                                    "3",
+                                    "4",
+                                    "5",
+                                    "6"
+                                ],
+                                "required": true,
+                                "default": "0"
+                            },
+                            "description": "The attribute `level` represents the panel's hierarchy level on the page.  The base level `0` (default) is\r\nthe bottom-most level.\r\n\r\nA value of `0` typically indicates the initial or base level. The\r\ninterpretation of the levels may vary depending on the specific application\r\nor domain.\r\n\r\nIt is expected to hold numerical values, where each increment or decrement\r\nsymbolizes progression or regression in the sequence of levels.",
+                            "source": {
+                                "module": "./src/components/vx-panel/vx-panel.component.ts",
+                                "symbol": "VxPanel.level"
+                            }
+                        }
+                    ],
+                    "js": {
+                        "properties": [
+                            {
+                                "name": "styles",
+                                "required": false,
+                                "priority": "normal",
+                                "value": {
+                                    "type": "CSSResult",
+                                    "required": true,
+                                    "default": "\"css`\\r\\n        :host {\\r\\n            display: block;\\r\\n            padding: 0;\\r\\n            margin: 1em;\\r\\n            border-radius: 0.5em;\\r\\n            border: 1px solid;\\r\\n            --border-color: none;\\r\\n            --background-color: none;\\r\\n            ${assignColors(0)}\\r\\n        }\\r\\n        :host([level=\\\"1\\\"]) { ${assignColors(10)} }\\r\\n        :host([level=\\\"2\\\"]) { ${assignColors(20)} }\\r\\n        :host([level=\\\"3\\\"]) { ${assignColors(30)} }\\r\\n        :host([level=\\\"4\\\"]) { ${assignColors(40)} }\\r\\n        :host([level=\\\"5\\\"]) { ${assignColors(50)} }\\r\\n        :host([level=\\\"6\\\"]) { ${assignColors(60)} }\\r\\n        \\r\\n        div {\\r\\n            padding: 0.5em;\\r\\n        }\\r\\n        \\r\\n        div#header, div#footer {\\r\\n            border: none;\\r\\n        }\\r\\n        div#body.has-header {\\r\\n            border-top: 1px solid var(--border-color);\\r\\n        }\\r\\n        div#body.has-footer {\\r\\n            border-bottom: 1px solid var(--border-color);\\r\\n        }\\r\\n    `\""
+                                },
+                                "source": {
+                                    "module": "./src/components/vx-panel/vx-panel.component.ts",
+                                    "symbol": "VxPanel.styles"
+                                }
+                            },
+                            {
+                                "name": "level",
+                                "required": false,
+                                "priority": "normal",
+                                "value": {
+                                    "type": [
+                                        "0",
+                                        "1",
+                                        "2",
+                                        "3",
+                                        "4",
+                                        "5",
+                                        "6"
+                                    ],
+                                    "required": true,
+                                    "default": "0"
+                                },
+                                "description": "The attribute `level` represents the panel's hierarchy level on the page.  The base level `0` (default) is\r\nthe bottom-most level.\r\n\r\nA value of `0` typically indicates the initial or base level. The\r\ninterpretation of the levels may vary depending on the specific application\r\nor domain.\r\n\r\nIt is expected to hold numerical values, where each increment or decrement\r\nsymbolizes progression or regression in the sequence of levels.",
+                                "source": {
+                                    "module": "./src/components/vx-panel/vx-panel.component.ts",
+                                    "symbol": "VxPanel.level"
+                                }
+                            },
+                            {
+                                "name": "headerNodes",
+                                "required": false,
+                                "priority": "normal",
+                                "value": {
+                                    "type": "Node[]",
+                                    "required": true
+                                },
+                                "source": {
+                                    "module": "./src/components/vx-panel/vx-panel.component.ts",
+                                    "symbol": "VxPanel.headerNodes"
+                                }
+                            },
+                            {
+                                "name": "footerNodes",
+                                "required": false,
+                                "priority": "normal",
+                                "value": {
+                                    "type": "Node[]",
+                                    "required": true
+                                },
+                                "source": {
+                                    "module": "./src/components/vx-panel/vx-panel.component.ts",
+                                    "symbol": "VxPanel.footerNodes"
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "vx-route",
+                    "description": "A route is a container for a set of content that is displayed when a specific URL fragment is\r\nmatched by the parent `vx-router` element.\r\n### Events\r\n- `vx-connected` - Dispatched when the route is connected to the DOM.\r\n- `vx-activate` - Dispatched when the route is about to be activated (before component update/render).\r\n- `vx-deactivate` - Dispatched when the route is about to be deactivated (before component update/render).\r\n- `vx-activated` - Dispatched when the route is about to be activated (after component update/render).\r\n- `vx-deactivated` - Dispatched when the route is about to be activated (after component update/render).",
+                    "source": {
+                        "module": "./src/components/vx-route/vx-route.component.ts",
+                        "symbol": "VxRoute"
+                    },
+                    "attributes": [
+                        {
+                            "name": "path",
+                            "required": false,
+                            "priority": "normal",
+                            "value": {
+                                "type": "string",
+                                "required": true,
+                                "default": "\"\""
+                            },
+                            "description": "The URL path of this route.",
+                            "source": {
+                                "module": "./src/components/vx-route/vx-route.component.ts",
+                                "symbol": "VxRoute.path"
+                            }
+                        },
+                        {
+                            "name": "subroute",
+                            "required": false,
+                            "priority": "normal",
+                            "value": {
+                                "type": "boolean",
+                                "required": false,
+                                "default": "false"
+                            },
+                            "description": "Indicates whether this route is a subroute of another route.  When the path is a subroute,\r\na match is made when the path is a prefix of the URL.  For example, if the path is `/customers`,\r\nthis will match `/customers` and `/customers/123`.  The subroute is expected to handle\r\nthe remaining URL fragment.\r\nDefaults to false.",
+                            "source": {
+                                "module": "./src/components/vx-route/vx-route.component.ts",
+                                "symbol": "VxRoute.subroute"
+                            }
+                        },
+                        {
+                            "name": "active",
+                            "required": false,
+                            "priority": "normal",
+                            "value": {
+                                "type": "boolean",
+                                "required": false,
+                                "default": "false"
+                            },
+                            "description": "[object Object],[object Object],[object Object]",
+                            "source": {
+                                "module": "./src/components/vx-route/vx-route.component.ts",
+                                "symbol": "VxRoute.active"
+                            }
+                        },
+                        {
+                            "name": "component",
+                            "required": false,
+                            "priority": "normal",
+                            "value": {
+                                "type": [
+                                    "string",
+                                    "undefined"
+                                ],
+                                "required": true
+                            },
+                            "description": "Optional component element tag.  When specified, any slotted content will be ignored.  The component\r\nwill be created and attached to the DOM.",
+                            "source": {
+                                "module": "./src/components/vx-route/vx-route.component.ts",
+                                "symbol": "VxRoute.component"
+                            }
+                        }
+                    ],
+                    "js": {
+                        "properties": [
+                            {
+                                "name": "styles",
+                                "required": false,
+                                "priority": "normal",
+                                "value": {
+                                    "type": "CSSResult",
+                                    "required": true,
+                                    "default": "\"css`\\r\\n        :host {\\r\\n            display: block;\\r\\n        }\\r\\n    `\""
+                                },
+                                "source": {
+                                    "module": "./src/components/vx-route/vx-route.component.ts",
+                                    "symbol": "VxRoute.styles"
+                                }
+                            },
+                            {
+                                "name": "path",
+                                "required": false,
+                                "priority": "normal",
+                                "value": {
+                                    "type": "string",
+                                    "required": true,
+                                    "default": "\"\""
+                                },
+                                "description": "The URL path of this route.",
+                                "source": {
+                                    "module": "./src/components/vx-route/vx-route.component.ts",
+                                    "symbol": "VxRoute.path"
+                                }
+                            },
+                            {
+                                "name": "subroute",
+                                "required": false,
+                                "priority": "normal",
+                                "value": {
+                                    "type": "boolean",
+                                    "required": false,
+                                    "default": "false"
+                                },
+                                "description": "Indicates whether this route is a subroute of another route.  When the path is a subroute,\r\na match is made when the path is a prefix of the URL.  For example, if the path is `/customers`,\r\nthis will match `/customers` and `/customers/123`.  The subroute is expected to handle\r\nthe remaining URL fragment.\r\nDefaults to false.",
+                                "source": {
+                                    "module": "./src/components/vx-route/vx-route.component.ts",
+                                    "symbol": "VxRoute.subroute"
+                                }
+                            },
+                            {
+                                "name": "active",
+                                "required": false,
+                                "priority": "normal",
+                                "value": {
+                                    "type": "boolean",
+                                    "required": false,
+                                    "default": "false"
+                                },
+                                "description": "[object Object],[object Object],[object Object]",
+                                "source": {
+                                    "module": "./src/components/vx-route/vx-route.component.ts",
+                                    "symbol": "VxRoute.active"
+                                }
+                            },
+                            {
+                                "name": "component",
+                                "required": false,
+                                "priority": "normal",
+                                "value": {
+                                    "type": [
+                                        "string",
+                                        "undefined"
+                                    ],
+                                    "required": true
+                                },
+                                "description": "Optional component element tag.  When specified, any slotted content will be ignored.  The component\r\nwill be created and attached to the DOM.",
+                                "source": {
+                                    "module": "./src/components/vx-route/vx-route.component.ts",
+                                    "symbol": "VxRoute.component"
+                                }
+                            },
+                            {
+                                "name": "defaultTemplate",
+                                "required": false,
+                                "priority": "normal",
+                                "value": {
+                                    "type": [
+                                        "TemplateResult",
+                                        "(() => TemplateResult)"
+                                    ],
+                                    "required": true,
+                                    "default": "\"html`<slot></slot>`\""
+                                },
+                                "description": "[object Object],[object Object],[object Object],[object Object],[object Object]",
+                                "source": {
+                                    "module": "./src/components/vx-route/vx-route.component.ts",
+                                    "symbol": "VxRoute.defaultTemplate"
+                                }
+                            },
+                            {
+                                "name": "componentRef",
+                                "required": false,
+                                "priority": "normal",
+                                "value": {
+                                    "type": [
+                                        "HTMLElement",
+                                        "undefined"
+                                    ],
+                                    "required": true
+                                },
+                                "description": "[object Object],[object Object],[object Object]",
+                                "source": {
+                                    "module": "./src/components/vx-route/vx-route.component.ts",
+                                    "symbol": "VxRoute.componentRef"
+                                }
+                            },
+                            {
+                                "name": "parameters",
+                                "required": false,
+                                "priority": "normal",
+                                "value": {
+                                    "type": [
+                                        "Partial<Record<string, string",
+                                        "string[]>>"
+                                    ],
+                                    "required": true,
+                                    "default": "{}"
+                                },
+                                "description": "Parameters extracted from the URL when the route is activated.",
+                                "source": {
+                                    "module": "./src/components/vx-route/vx-route.component.ts",
+                                    "symbol": "VxRoute.parameters"
+                                }
+                            },
+                            {
+                                "name": "containerRef",
+                                "required": false,
+                                "priority": "lowest",
+                                "value": {
+                                    "type": "Ref<Element>",
+                                    "required": true,
+                                    "default": "\"createRef()\""
+                                },
+                                "source": {
+                                    "module": "./src/components/vx-route/vx-route.component.ts",
+                                    "symbol": "VxRoute.containerRef"
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "vx-router",
+                    "description": "A simple application router to render routes conditionally based on the current URL.\r\nEach route is declared as a slotted `vx-route` element.\r\n### Slots\r\n- `<slot></slot>` - The default slot is used to declare the routes to be rendered by this router.",
+                    "source": {
+                        "module": "./src/components/vx-router/vx-router.component.ts",
+                        "symbol": "VxRouter"
+                    },
+                    "attributes": [
+                        {
+                            "name": "reversed",
+                            "required": false,
+                            "priority": "normal",
+                            "value": {
+                                "type": "boolean",
+                                "required": false,
+                                "default": "false"
+                            },
+                            "description": "Indicates that routes are matched in reverse order. When set, routes should be listed with\r\nfrom least specific to most specific.",
+                            "source": {
+                                "module": "./src/components/vx-router/vx-router.component.ts",
+                                "symbol": "VxRouter.reversed"
+                            }
+                        }
+                    ],
+                    "js": {
+                        "properties": [
+                            {
+                                "name": "styles",
+                                "required": false,
+                                "priority": "normal",
+                                "value": {
+                                    "type": "CSSResult",
+                                    "required": true,
+                                    "default": "\"css`\\r\\n    `\""
+                                },
+                                "source": {
+                                    "module": "./src/components/vx-router/vx-router.component.ts",
+                                    "symbol": "VxRouter.styles"
+                                }
+                            },
+                            {
+                                "name": "reversed",
+                                "required": false,
+                                "priority": "normal",
+                                "value": {
+                                    "type": "boolean",
+                                    "required": false,
+                                    "default": "false"
+                                },
+                                "description": "Indicates that routes are matched in reverse order. When set, routes should be listed with\r\nfrom least specific to most specific.",
+                                "source": {
+                                    "module": "./src/components/vx-router/vx-router.component.ts",
+                                    "symbol": "VxRouter.reversed"
+                                }
+                            },
+                            {
+                                "name": "currentURL",
+                                "required": false,
+                                "priority": "normal",
+                                "value": {
+                                    "type": "URL",
+                                    "required": true,
+                                    "default": "\"new URL(window.location.href)\""
+                                },
+                                "source": {
+                                    "module": "./src/components/vx-router/vx-router.component.ts",
+                                    "symbol": "VxRouter.currentURL"
+                                }
+                            },
+                            {
+                                "name": "routes",
+                                "required": false,
+                                "priority": "normal",
+                                "value": {
+                                    "type": "VxRoute[]",
+                                    "required": true
+                                },
+                                "source": {
+                                    "module": "./src/components/vx-router/vx-router.component.ts",
+                                    "symbol": "VxRouter.routes"
+                                }
+                            },
+                            {
+                                "name": "navigateEventHandler",
+                                "required": false,
+                                "priority": "normal",
+                                "value": {
+                                    "kind": "plain",
+                                    "type": "",
+                                    "required": true
+                                },
+                                "source": {
+                                    "module": "./src/components/vx-router/vx-router.component.ts",
+                                    "symbol": "VxRouter.navigateEventHandler"
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "vx-svg",
+                    "description": "vx-svg is a component that renders an SVG icon from the vx-svg library.",
+                    "source": {
+                        "module": "./src/components/vx-svg/vx-svg.component.ts",
+                        "symbol": "VxSvg"
+                    },
+                    "attributes": [
+                        {
+                            "name": "library",
+                            "required": false,
+                            "priority": "normal",
+                            "value": {
+                                "type": "string",
+                                "required": true,
+                                "default": "\"default\""
+                            },
+                            "source": {
+                                "module": "./src/components/vx-svg/vx-svg.component.ts",
+                                "symbol": "VxSvg.library"
+                            }
+                        },
+                        {
+                            "name": "name",
+                            "required": false,
+                            "priority": "normal",
+                            "value": {
+                                "type": "string",
+                                "required": true,
+                                "default": "\"\""
+                            },
+                            "source": {
+                                "module": "./src/components/vx-svg/vx-svg.component.ts",
+                                "symbol": "VxSvg.name"
+                            }
+                        },
+                        {
+                            "name": "button",
+                            "required": false,
+                            "priority": "normal",
+                            "value": {
+                                "type": "boolean",
+                                "required": false,
+                                "default": "false"
+                            },
+                            "source": {
+                                "module": "./src/components/vx-svg/vx-svg.component.ts",
+                                "symbol": "VxSvg.button"
+                            }
+                        }
+                    ],
+                    "js": {
+                        "properties": [
+                            {
+                                "name": "styles",
+                                "required": false,
+                                "priority": "normal",
+                                "value": {
+                                    "type": "CSSResult",
+                                    "required": true,
+                                    "default": "\"css`\\r\\n        :host {\\r\\n            display: inline-block;\\r\\n            justify-content: center;\\r\\n            align-items: center;\\r\\n        }\\r\\n        svg {\\r\\n            padding: 0.1em;\\r\\n            width: inherit;\\r\\n            height: inherit;\\r\\n        }\\r\\n\\r\\n        :host([button]) svg:hover {\\r\\n            background-color: color-mix(in oklab, contrast-color(transparent), transparent);\\r\\n            cursor: pointer;\\r\\n        }\\r\\n    `\""
+                                },
+                                "source": {
+                                    "module": "./src/components/vx-svg/vx-svg.component.ts",
+                                    "symbol": "VxSvg.styles"
+                                }
+                            },
+                            {
+                                "name": "notFoundIcon",
+                                "required": false,
+                                "priority": "normal",
+                                "value": {
+                                    "type": "TemplateResult<1>",
+                                    "required": true,
+                                    "default": "\"html`\\r\\n        <svg xmlns=\\\"http://www.w3.org/2000/svg\\\" width=\\\"1em\\\" height=\\\"1em\\\" fill=\\\"currentColor\\\" viewBox=\\\"0 0 16 16\\\">\\r\\n            <path d=\\\"M4.978.855a.5.5 0 1 0-.956.29l.41 1.352A5 5 0 0 0 3 6h10a5 5 0 0 0-1.432-3.503l.41-1.352a.5.5 0 1 0-.956-.29l-.291.956A5 5 0 0 0 8 1a5 5 0 0 0-2.731.811l-.29-.956z\\\"/>\\r\\n            <path d=\\\"M13 6v1H8.5v8.975A5 5 0 0 0 13 11h.5a.5.5 0 0 1 .5.5v.5a.5.5 0 1 0 1 0v-.5a1.5 1.5 0 0 0-1.5-1.5H13V9h1.5a.5.5 0 0 0 0-1H13V7h.5A1.5 1.5 0 0 0 15 5.5V5a.5.5 0 0 0-1 0v.5a.5.5 0 0 1-.5.5zm-5.5 9.975V7H3V6h-.5a.5.5 0 0 1-.5-.5V5a.5.5 0 0 0-1 0v.5A1.5 1.5 0 0 0 2.5 7H3v1H1.5a.5.5 0 0 0 0 1H3v1h-.5A1.5 1.5 0 0 0 1 11.5v.5a.5.5 0 1 0 1 0v-.5a.5.5 0 0 1 .5-.5H3a5 5 0 0 0 4.5 4.975\\\"/>\\r\\n        </svg>\\r\\n    `\""
+                                },
+                                "source": {
+                                    "module": "./src/components/vx-svg/vx-svg.component.ts",
+                                    "symbol": "VxSvg.notFoundIcon"
+                                }
+                            },
+                            {
+                                "name": "library",
+                                "required": false,
+                                "priority": "normal",
+                                "value": {
+                                    "type": "string",
+                                    "required": true,
+                                    "default": "\"default\""
+                                },
+                                "source": {
+                                    "module": "./src/components/vx-svg/vx-svg.component.ts",
+                                    "symbol": "VxSvg.library"
+                                }
+                            },
+                            {
+                                "name": "name",
+                                "required": false,
+                                "priority": "normal",
+                                "value": {
+                                    "type": "string",
+                                    "required": true,
+                                    "default": "\"\""
+                                },
+                                "source": {
+                                    "module": "./src/components/vx-svg/vx-svg.component.ts",
+                                    "symbol": "VxSvg.name"
+                                }
+                            },
+                            {
+                                "name": "button",
+                                "required": false,
+                                "priority": "normal",
+                                "value": {
+                                    "type": "boolean",
+                                    "required": false,
+                                    "default": "false"
+                                },
+                                "source": {
+                                    "module": "./src/components/vx-svg/vx-svg.component.ts",
+                                    "symbol": "VxSvg.button"
+                                }
+                            }
+                        ],
+                        "events": [
+                            {
+                                "name": "vx-click"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "css": {
+            "properties": []
+        }
+    }
+}

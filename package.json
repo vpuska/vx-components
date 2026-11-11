@@ -1,0 +1,38 @@
+{
+  "name": "vx-components",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "web-types": [
+    "./vx-webtypes.json"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "analyze": "cem analyze",
+    "webtypes": "wca-webtypes analyse src/components/**/*.component.ts --format webtypes --outFile vx-webtypes.json"
+  },
+  "dependencies": {
+    "bootstrap-icons": "^1.13.2",
+    "color2k": "^2.0.4",
+    "lit": "^3.3.3",
+    "path-to-regexp": "^9.0.0"
+  },
+  "devDependencies": {
+    "@custom-elements-manifest/analyzer": "^0.11.0",
+    "@web-types/lit": "^2.0.0-3",
+    "custom-element-jet-brains-integration": "^1.8.0",
+    "typescript": "~6.0.2",
+    "vite": "^8.3.0"
+  },
+  "wca": {
+    "webtypesConfig": {
+      "name": "vx-components",
+      "version": "0.0.1",
+      "framework": "lit",
+      "description-markup": "markdown"
+    }
+  },
+  "customElements": "custom-elements.json"
+}

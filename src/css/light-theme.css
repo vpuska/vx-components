@@ -1,0 +1,15 @@
+/*
+    File: css/light-theme.css
+    -------------------------
+    Author: Victor Puska
+    Date: 19-Oct-2026
+ */
+
+:root,
+:host,
+.vx-light-theme {
+    color-scheme: light;
+    --vx-text-color: black;
+    --vx-panel-color: #bec8d5;
+}
+

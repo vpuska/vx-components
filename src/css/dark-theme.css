@@ -1,0 +1,14 @@
+/*
+    File: css/dark-theme.css
+    -------------------------
+    Author: Victor Puska
+    Date: 19-Oct-2026
+ */
+
+:host,
+.vx-dark-theme {
+    color-scheme: dark;
+    --vx-text-color: white;
+    --vx-panel-color: #020b17;
+}
+
