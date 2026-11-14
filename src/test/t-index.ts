@@ -1,14 +1,15 @@
 import {LitElement, html, css} from 'lit'
 import {customElement, query} from "lit/decorators.js";
 
-import "../components/vx-panel/vx-panel.test.ts";
-import "../components/vx-svg/vx-svg.test.ts";
-import "../components/vx-router/vx-router.test.ts";
 import "../components/vx-router/vx-router.ts";
 import "../components/vx-route/vx-route.ts";
 
-@customElement('test-suite-menu')
-export class TestSuiteMenu extends LitElement {
+import "./components/t-panels.ts";
+import "./components/t-routing.ts";
+import "./components/t-svg.ts";
+
+@customElement('t-index')
+export class TIndex extends LitElement {
 
     // noinspection CssUnusedSymbol
     static styles = css`
@@ -63,38 +64,38 @@ export class TestSuiteMenu extends LitElement {
 
                     <h2>vx-panel</h2>
                     <div class="buttons" @click=${this.runTest}>
-                        <button data-element="test-vx-panel-theming">Theming</button>
+                        <button data-element="t-panels">Theming</button>
                     </div>
 
                     <h2>SVG Tests</h2>
                     <div class="buttons" @click=${this.runTest}>
-                        <button data-element="test-vx-svg">SVG Tests</button>
+                        <button data-element="t-svg">SVG Tests</button>
                     </div>
 
                     <h2>Router Tests</h2>
                     <div class="buttons" @click=${this.runTest}>
-                        <button data-element="test-vx-router/component/">Router Tests</button>
+                        <button data-element="t-routing/component/">Router Tests</button>
                     </div>
 
                     <h2>Router Tests with #hash</h2>
                     <div class="buttons" @click=${this.runTest}>
-                        <button data-element="test-vx-router/slotted/">Router Tests</button>
+                        <button data-element="t-routing/slotted/">Router Tests</button>
                     </div>
                 </vx-route>
 
-                <vx-route path="/test-vx-panel-theming">
-                    <test-vx-panel-theming></test-vx-panel-theming>
+                <vx-route path="/t-panels">
+                    <t-panels></t-panels>
                 </vx-route>
 
-                <vx-route path="/test-vx-svg">
-                    <test-vx-svg></test-vx-svg>
+                <vx-route path="/t-svg">
+                    <t-svg></t-svg>
                 </vx-route>
                 
-                <vx-route path="/test-vx-router/component" subroute component="test-vx-router">
+                <vx-route path="/t-routing/component" subroute component="t-routing">
                 </vx-route>
 
-                <vx-route path="/test-vx-router/slotted" subroute>
-                    <test-vx-router></test-vx-router>
+                <vx-route path="/t-routing/slotted" subroute>
+                    <t-routing></t-routing>
                 </vx-route>
                 
             </vx-router>
@@ -102,10 +103,3 @@ export class TestSuiteMenu extends LitElement {
     }
 }
 
-
-declare global {
-    // noinspection JSUnusedGlobalSymbols
-    interface HTMLElementTagNameMap {
-        'test-suite-menu': TestSuiteMenu;
-    }
-}

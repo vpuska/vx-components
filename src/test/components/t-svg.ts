@@ -1,10 +1,10 @@
 import {LitElement, html, css,} from 'lit'
 import {customElement} from "lit/decorators.js";
 import {svg} from "../../lib/svg.ts";
-import "./vx-svg";
+import "../../components/vx-svg/vx-svg.ts";
 
-@customElement('test-vx-svg')
-export class TestVxSvg extends LitElement {
+@customElement('t-svg')
+export class TestSVG extends LitElement {
 
     // noinspection CssUnusedSymbol
     static styles = css`

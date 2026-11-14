@@ -1,9 +1,9 @@
 import {LitElement, html, nothing, type TemplateResult, css,} from 'lit'
 import {customElement} from "lit/decorators.js";
-import "./vx-panel.ts";
+import "../../components/vx-panel/vx-panel.ts";
 
-@customElement('test-vx-panel-theming')
-export class TestVxPanelTheming extends LitElement {
+@customElement('t-panels')
+export class TestPanels extends LitElement {
 
     static styles = css`
         h3 {

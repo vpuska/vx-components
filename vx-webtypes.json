@@ -109,7 +109,7 @@
                 },
                 {
                     "name": "vx-route",
-                    "description": "A route is a container for a set of content that is displayed when a specific URL fragment is\r\nmatched by the parent `vx-router` element.\r\n### Events\r\n- `vx-connected` - Dispatched when the route is connected to the DOM.\r\n- `vx-activate` - Dispatched when the route is about to be activated (before component update/render).\r\n- `vx-deactivate` - Dispatched when the route is about to be deactivated (before component update/render).\r\n- `vx-activated` - Dispatched when the route is about to be activated (after component update/render).\r\n- `vx-deactivated` - Dispatched when the route is about to be activated (after component update/render).",
+                    "description": "A route is a container for a set of content that is displayed when a specific URL fragment is\r\nmatched by the parent `vx-router` element.<br>\r\n<a href=\"https://vpuska.github.io/vx-docs/Components/vx-route/\">Documentation</a>",
                     "source": {
                         "module": "./src/components/vx-route/vx-route.component.ts",
                         "symbol": "VxRoute"
@@ -257,7 +257,7 @@
                                 }
                             },
                             {
-                                "name": "defaultTemplate",
+                                "name": "customTemplate",
                                 "required": false,
                                 "priority": "normal",
                                 "value": {
@@ -271,7 +271,7 @@
                                 "description": "[object Object],[object Object],[object Object],[object Object],[object Object]",
                                 "source": {
                                     "module": "./src/components/vx-route/vx-route.component.ts",
-                                    "symbol": "VxRoute.defaultTemplate"
+                                    "symbol": "VxRoute.customTemplate"
                                 }
                             },
                             {
@@ -328,7 +328,7 @@
                 },
                 {
                     "name": "vx-router",
-                    "description": "A simple application router to render routes conditionally based on the current URL.\r\nEach route is declared as a slotted `vx-route` element.\r\n### Slots\r\n- `<slot></slot>` - The default slot is used to declare the routes to be rendered by this router.",
+                    "description": "A simple application router to render routes conditionally based on the current URL.\r\nEach route is declared as a slotted `vx-route` element.",
                     "source": {
                         "module": "./src/components/vx-router/vx-router.component.ts",
                         "symbol": "VxRouter"

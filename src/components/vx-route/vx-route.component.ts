@@ -6,12 +6,7 @@ import {match} from "path-to-regexp";
 /**
  * A route is a container for a set of content that is displayed when a specific URL fragment is
  * matched by the parent `vx-router` element.
- * #### Events
- * - `vx-connected` - Dispatched when the route is connected to the DOM.
- * - `vx-activate` - Dispatched when the route is about to be activated (before component update/render).
- * - `vx-deactivate` - Dispatched when the route is about to be deactivated (before component update/render).
- * - `vx-activated` - Dispatched when the route is about to be activated (after component update/render).
- * - `vx-deactivated` - Dispatched when the route is about to be activated (after component update/render).
+ * <br><a href="https://vpuska.github.io/vx-docs/Components/vx-route/">Documentation</a>
  * @see VxRouter
  */
 @customElement('vx-route')
@@ -56,7 +51,7 @@ export class VxRoute extends LitElement {
      * or function returning a {@link TemplateResult}<br>
      * Default is `<slot></slot>`.
      */
-    public defaultTemplate: TemplateResult | (() => TemplateResult) = html`<slot></slot>`;
+    public customTemplate: TemplateResult | (() => TemplateResult) = html`<slot></slot>`;
 
     /**
      * Reference to the optional {@link component} element.  This reference is set after the route is
@@ -149,7 +144,7 @@ export class VxRoute extends LitElement {
     }
 
     render() {
-        let content = this.defaultTemplate;
+        let content = this.customTemplate;
         if (this.component)
             content = html`<div id="container" ${ref(this.containerRef)}></div>`;
         return this.active ? this.renderTemplate(content) : nothing;
