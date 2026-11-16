@@ -1,16 +1,29 @@
 {
   "name": "vx-components",
-  "private": true,
   "version": "0.0.0",
   "type": "module",
+  "main": "./dist/library/index.cjs",
+  "module": "./dist/library/index.js",
+  "types": "./dist/library/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/library/types/index.d.ts",
+      "import": "./dist/library/index.js",
+      "require": "./dist/library/index.cjs"
+    }
+  },
+  "files": [
+    "dist/library"
+  ],
   "web-types": [
     "./vx-webtypes.json"
   ],
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "npm run build:library && npm run build:standalone",
+    "build:library": "vite build --mode library && tsc -p tsconfig.build.json && node scripts/rewrite-type-imports.mjs",
+    "build:standalone": "vite build --mode standalone",
     "preview": "vite preview",
-    "analyze": "cem analyze",
     "webtypes": "wca-webtypes analyse src/components/**/*.component.ts --format webtypes --outFile vx-webtypes.json"
   },
   "dependencies": {

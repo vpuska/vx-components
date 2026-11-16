@@ -8,6 +8,7 @@ import "./components/t-panels.ts";
 import "./components/t-routing.ts";
 import "./components/t-svg.ts";
 
+
 @customElement('t-index')
 export class TIndex extends LitElement {
 
@@ -103,3 +104,10 @@ export class TIndex extends LitElement {
     }
 }
 
+
+declare global {
+    // noinspection JSUnusedGlobalSymbols
+    interface HTMLElementTagNameMap {
+        'tx-index': TIndex;
+    }
+}
