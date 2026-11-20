@@ -3,6 +3,14 @@ import {type SVGLibrary} from "./svg-register.ts";
 
 export const systemIcons: SVGLibrary = {
 
+    "favicon" : html`
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="1em" height="1em">
+          <rect width="512" height="512" style="fill: rgba(71, 87, 91, 0.300);"/>
+          <path d="M 155.559 415.826 L 13.786 87.123 L 100.519 87.167 L 200.898 330.441 L 297.737 87.267 L 382.572 87.31 L 240.947 415.87 L 155.559 415.826 Z" style="fill: rgb(248, 148, 7); text-wrap-mode: nowrap;"/>
+          <path d="M 187.712 415.87 L 321.421 294.77 L 203.511 183.491 L 257.982 183.491 L 320.714 243.096 C 333.766 255.455 343.039 264.966 348.536 271.628 C 356.24 263.173 365.359 254.346 375.892 245.148 L 445.455 183.491 L 495.217 183.491 L 373.77 293.019 L 504.652 415.87 L 448.059 415.87 L 361.041 332.973 C 356.166 328.211 351.135 323.033 345.949 317.436 C 338.244 325.892 332.742 331.705 329.442 334.874 L 242.665 415.87 L 187.712 415.87 Z" style="text-wrap-mode: nowrap; fill: rgb(81, 119, 144);"/>
+        </svg>
+    `,
+
     "bootstrap": html`
         <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="bi bi-bootstrap"
              viewBox="0 0 16 16">

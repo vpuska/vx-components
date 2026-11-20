@@ -6,6 +6,7 @@ import {composedPath} from "../../lib/dom.ts";
 /**
  * A simple application router to render routes conditionally based on the current URL.
  * Each route is declared as a slotted `vx-route` element.
+ * <br><a href="https://vpuska.github.io/vx-docs/Components/vx-router/">Documentation</a>
  * @see VxRoute
  */
 @customElement('vx-router')

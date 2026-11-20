@@ -1,15 +1,17 @@
+
 import {LitElement, html, css} from 'lit'
 import {customElement, query} from "lit/decorators.js";
 
-import "../components/vx-router/vx-router.ts";
-import "../components/vx-route/vx-route.ts";
-
-import "./components/t-panels.ts";
 import "./components/t-routing.ts";
+import "./components/t-panels.ts";
 import "./components/t-svg.ts";
+import "./lib/test-icons.ts";
 
 
 @customElement('t-index')
+/**
+ * Test suite menu
+ */
 export class TIndex extends LitElement {
 
     // noinspection CssUnusedSymbol
@@ -17,6 +19,22 @@ export class TIndex extends LitElement {
         :host {
             display: block;
             padding: 16px;
+        }
+        div#heading {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 1em;
+            height: 64px;
+            padding-bottom: 1em;
+            border-bottom: 1px solid;
+        }
+        div#heading vx-svg {
+            background-color: transparent;
+            border-radius: 8px;
+        }
+        div#theme {
+            margin-left: auto;
         }
         div.buttons {
             display: inline-block;
@@ -41,6 +59,25 @@ export class TIndex extends LitElement {
     render() {
         return html`
 
+            <div id="heading">
+                <vx-svg button style="margin:0; height:3em" library="$system" name="favicon"
+                    @click=${() => navigation.navigate("/")}   
+                ></vx-svg>
+                <h1>&lt;vx-components&gt;</h1>
+                <div id="theme">
+                    <button @click=${()=> {
+                        document.documentElement.classList.add("vx-light-theme");
+                        document.documentElement.classList.remove("vx-dark-theme");
+                    }}>Light Theme
+                    </button>
+                    <button @click=${()=> {
+                        document.documentElement.classList.add("vx-dark-theme");
+                        document.documentElement.classList.remove("vx-light-theme");
+                    }}>Dark Theme
+                    </button>
+                </div>
+            </div>
+
             <vx-router id="main" reversed>
 
                 <vx-route id="fred" path="/*splat">
@@ -48,21 +85,6 @@ export class TIndex extends LitElement {
                 </vx-route>
                 
                 <vx-route path="/">
-                    <h2>Theme</h2>
-                    <div class="buttons">
-                        <button @click=${()=> {
-                            document.documentElement.classList.add("vx-light-theme");
-                            document.documentElement.classList.remove("vx-dark-theme");
-                        }}>Light Theme
-                        </button>
-
-                        <button @click=${()=> {
-                            document.documentElement.classList.add("vx-dark-theme");
-                            document.documentElement.classList.remove("vx-light-theme");
-                        }}>Dark Theme
-                        </button>
-                    </div>
-
                     <h2>vx-panel</h2>
                     <div class="buttons" @click=${this.runTest}>
                         <button data-element="t-panels">Theming</button>

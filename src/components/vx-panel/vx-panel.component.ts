@@ -23,12 +23,7 @@ function assignColors(percent: number) {
  * A nestable container for a logical grouping of content. When nested, the panel's colors
  * can be adjusted using the level attribute. 0 is the bottom-most level.  Higher levels
  * lighten or darken the panel depending on whether the theme is light or dark.
- * ### Slots
- * - `header` - The header of the panel.
- * - `footer` - The footer of the panel.
- * ### CSS Properties
- * - `--vx-panel-color` - The background color of the panel
- * - `--vx-text-color` - The text color of the panel`
+ * <br><a href="https://vpuska.github.io/vx-docs/Components/vx-panel/">Documentation</a>
  */
 @customElement('vx-panel')
 export class VxPanel extends LitElement {

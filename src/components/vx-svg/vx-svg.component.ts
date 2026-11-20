@@ -4,6 +4,7 @@ import {systemIcons, registerSvgLibrary, getSvgLibrary} from "../../lib/svg.ts";
 
 /**
  * vx-svg is a component that renders an SVG icon from the vx-svg library.
+ * <br><a href="https://vpuska.github.io/vx-docs/Components/vx-svg/">Documentation</a>
  */
 @customElement('vx-svg')
 export class VxSvg extends LitElement {
@@ -20,27 +21,14 @@ export class VxSvg extends LitElement {
             align-items: center;
         }
         svg {
-            padding: 0.1em;
             width: inherit;
             height: inherit;
         }
-
         :host([button]) svg:hover {
-            background-color: color-mix(in oklab, contrast-color(transparent), transparent);
+            background: rgba(255, 255, 255, 0.5);
             cursor: pointer;
         }
     `
-
-    constructor() {
-        super();
-        this.addEventListener('click', () => {
-            if (this.button)
-                this.dispatchEvent(new Event('vx-click', {
-                    bubbles: true,
-                    composed: true,
-                }));
-        })
-    }
 
     static notFoundIcon = html`
         <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16">
@@ -51,8 +39,8 @@ export class VxSvg extends LitElement {
 
     @property({type: String}) library = 'default';
     @property({type: String}) name = '';
-
     @property({type: Boolean}) button = false;
+
 
     render() {
         const lib = getSvgLibrary(this.library) || {};
